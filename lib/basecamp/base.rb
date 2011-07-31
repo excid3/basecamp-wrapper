@@ -4,7 +4,7 @@ module Basecamp
     attr_reader :site, :user, :password, :use_ssl
 
     def establish_connection!(site, user, password = "X")
-      @use_ssl  = site.starts_with? "https"
+      @use_ssl  = site.match(/^https/) ? true : false
       @site     = site
       @user     = user
       @password = password
